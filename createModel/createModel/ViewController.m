@@ -172,6 +172,9 @@
         }else if ([type rangeOfString:@"NSCFNumber"].length>0) {
             //Number类型
             content =[NSString stringWithFormat:@"@property (nonatomic,strong) NSNumber *%@;\n",key];
+        }else if ([type rangeOfString:@"NSDictionary"].length>0) {
+            //Dictionary类型
+            content =[NSString stringWithFormat:@"@property (nonatomic,strong) NSDictionary *%@;\n",key];
         }else if ([type rangeOfString:@"NSArray"].length>0)
         {//数组
 
@@ -196,7 +199,7 @@
     //如若不需要作者的友情链接替换成空即可
     NSString *fileHeader=@"";
     
-    NSString *hFile1=@"\n#import <UIKit/UIKit.h>\n\n@i";
+    NSString *hFile1=@"\n\n\n@i";
     NSString *hFile2=[NSString stringWithFormat:@"nterface %@ : NSObject\n\n\n",fileName];
     
     NSString *fileFooter1=@"\n\n@e";
